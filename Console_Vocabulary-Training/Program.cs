@@ -1,6 +1,9 @@
 ﻿using System;
 using ClassLibrary;
+using System.IO;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Console_Vocabulary_Training
 {
@@ -8,13 +11,346 @@ namespace Console_Vocabulary_Training
     {
         static void Main(string[] args)
         {
-            if (args.Length > 0)
+            if (args.Length == 0)
             {
-                if (args[0].Equals("-runtests"))
+                Console.WriteLine("Use any of the following parameters:\n" +
+                    "-lists\n" +
+                    "-new <list name> <language 1> <language 2> .. <language n>\n" +
+                    "-add <list names>\n" +
+                    "-remove <list name> <language> <word 1> <word 2> .. <word n>\n" +
+                    "-words <list name> <sortByLanguage>" +
+                    "-count <list name>" +
+                    "-practice <list name>\n");
+            }
+            else if (args.Length > 0)
+            {
+                if (args[0].Equals("-list"))
+                {
+                    GetListOfDictionaries();
+                }
+                else if (args[0].Equals("-new"))
+                {
+                    if (args.Length < 4)
+                    {
+                        Console.WriteLine("Input parameter error:\n" +
+                            "-new <listname> <language 1> <language 2> .. <language n>\n");
+                        return;
+                    }
+
+                    CreateNewList(args);
+                }
+                else if (args[0].Equals("-add"))
+                {
+                    if (args.Length != 2)
+                    {
+                        Console.WriteLine("Input parameter error: \n" +
+                        "-add <list name>\n");
+                        return;
+                    }
+
+                    AddNewWordToDictionary(args[1]);
+                }
+                else if (args[0].Equals("-remove"))
+                {
+                    if (args.Length <= 3)
+                    {
+                        Console.WriteLine("Input parameter error:\n" +
+                            "remove <list name> <language> <word 1> <word 2> .. <word n>");
+                        return;
+                    }
+
+                    RemoveWordsFromDictionary(args[1], args[2], new ArraySegment<string>(args, 3, args.Length - 3).ToArray());
+                }
+                else if (args[0].Equals("-words"))
+                {
+                    if (args.Length != 3)
+                    {
+                        Console.WriteLine("Input parameter error:\n" +
+                            "-words <list name> <sort by language>\n");
+                        return;
+                    }
+
+                    ListSortedWordsInDictionary(args[1], args[2]);
+                }
+                else if (args[0].Equals("-count"))
+                {
+                    if (args.Length != 2)
+                    {
+                        Console.WriteLine("Input parameter error:\n" +
+                            "-count <list name>\n");
+                        return;
+                    }
+
+                    CountWordsInDictionary(args[1]);
+                }
+                else if (args[0].Equals("-practice"))
+                {
+                    if (args.Length != 2)
+                    {
+                        Console.WriteLine("Input parameter error:\n" +
+                            "-practice <list name>\n");
+                        return;
+                    }
+
+                    PracticeWordsInDictionary(args[1]);
+                }
+                else if (args[0].Equals("-runtests"))
                 {
                     RunLibraryTests();
                 }
+                else
+                {
+                    Console.Error.WriteLine("Error: unsupported parameter detected");
+                    Console.Error.WriteLine("Use any of the following parameters:\n" +
+                        "-lists\n" +
+                        "-new <list name>\n" +
+                        "-add <list name>\n" +
+                        "-remove <list name> <language 1> <language 2> .. <language n>\n" +
+                        "-words <list name> <sortByLanguage>\n" +
+                        "-count <list name>\n" +
+                        "-practice <list name>\n");
+                }
             }
+        }
+
+        static void GetListOfDictionaries()
+        {
+            foreach (string file in WordList.GetLists())
+            {
+                Console.WriteLine(file);
+            }
+        }
+
+        static void CreateNewList(string [] inputParams)
+        {
+            WordList wordList = new WordList(inputParams[1], new ArraySegment<string>(inputParams, 2, inputParams.Length - 2).Array);
+
+            if (wordList != null)
+            {
+                wordList.Save();
+                AddNewWordToDictionary(inputParams[1]);
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + inputParams[1] + "\"");
+            }
+        }
+
+        static void AddNewWordToDictionary(string listName)
+        {
+            WordList wordList = WordList.LoadList(listName);
+            string inputWord = "";
+
+            if (wordList != null)
+            {
+
+                do
+                {
+                    int index = 0;
+                    List<string> words = new List<string>();
+
+                    foreach (string language in wordList.Languages)
+                    {
+                        if (index == 0)
+                        {
+                            Console.Write("Add new word to list in " + language + ": ");
+                        }
+                        else
+                        {
+                            Console.Write("Add word translation to list in " + language + ": ");
+                        }
+
+                        inputWord = Console.ReadLine();
+
+                        if (inputWord.Equals(""))
+                        {
+                            break;
+                        }
+
+                        words.Add(inputWord);
+                        index++;
+                    }
+
+                    if (index > 0)
+                    {
+                        try
+                        {
+                            wordList.Add(words.ToArray());
+                            wordList.Save();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.Error.WriteLine(e.Message);
+                        }
+                    }
+
+                } while (!inputWord.Equals(""));
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + listName + "\"");
+            }
+        }
+
+        static void RemoveWordsFromDictionary(string listName, string language, string [] words)
+        {
+            WordList wordList = WordList.LoadList(listName);
+            int languageIndex = 0;
+            bool languageFound = false;
+            bool wordFound = false;
+
+            if (wordList != null)
+            {
+                foreach (string lang in wordList.Languages)
+                {
+                    if (lang.ToLower().Equals(language.ToLower()))
+                    {
+                        languageFound = true;
+                        break;
+                    }
+
+                    ++languageIndex;
+                }
+
+                if (languageFound == true)
+                {
+                    foreach (string word in words)
+                    {
+                        bool result = wordList.Remove(languageIndex, word);
+                        if (result == true)
+                        {
+                            Console.WriteLine("Sucessfully removed the " + language + " word \"" + word + "\"");
+                            wordList.Save();
+                            wordFound = true;
+                        }
+                    }
+
+                    if (wordFound == false)
+                    {
+                        Console.Error.Write("Error: unable to find/remove the " + language + "word(s): ");
+                        for (int i = 0; i < words.Length; ++i)
+                        {
+                            Console.Error.Write(words[i]);
+
+                            if (i < words.Length - 1)
+                            {
+                                Console.Error.Write(", ");
+                            }
+                            else
+                            {
+                                Console.Error.WriteLine("");
+                            }
+                        }
+                    }
+
+                }
+                else
+                {
+                    Console.Error.WriteLine("Error: the language \"" + language + "\" does not exist in the list " + listName);
+                }
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + listName + "\"");
+            }
+        }
+
+        static void ListSortedWordsInDictionary(string listName, string language)
+        {
+            WordList wordList = WordList.LoadList(listName);
+            int languageIndex = 0;
+            bool languageFound = false;
+            Action<string[]> showTranslations = PrintSortedList;
+
+            if (wordList != null)
+            {
+                foreach (string lang in wordList.Languages)
+                {
+                    if (lang.ToLower().Equals(language.ToLower()))
+                    {
+                        languageFound = true;
+                        break;
+                    }
+
+                    ++languageIndex;
+                }
+
+                if (languageFound == true)
+                {
+                    wordList.List(languageIndex, showTranslations);
+                }
+                else
+                {
+                    Console.Error.WriteLine("Error: the language \"" + language + "\" does not existin the list " + listName);
+                }
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + listName + "\"");
+            }
+        }
+
+        static void CountWordsInDictionary(string listName)
+        {
+            WordList wordList = WordList.LoadList(listName);
+
+            if (wordList != null)
+            {
+                int count = wordList.Count();
+                Console.WriteLine(listName + "'s word count: " + count);
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + listName + "\"");
+            }
+        }
+        
+        static void PracticeWordsInDictionary(string listName)
+        {
+            WordList wordList = WordList.LoadList(listName);
+            string inputWord = "";
+            int numberOfWordsPracticed = 0;
+            int numberOfCorrectWordsPracticed = 0;
+
+            if (wordList != null)
+            {
+                do
+                {
+                    Word PracticeWord = wordList.GetWordToPractice();
+                    string fromLanguage = wordList.Languages[PracticeWord.FromLanguage];
+                    string fromPracticeWord = PracticeWord.Translations[PracticeWord.FromLanguage];
+                    string toLanguage = wordList.Languages[PracticeWord.ToLanguage];
+                    string toPracticeWord = PracticeWord.Translations[PracticeWord.ToLanguage];
+
+                    Console.Write("Translate the " + char.ToUpper(fromLanguage[0]) + fromLanguage.Substring(1).ToLower() +
+                        " word \"" + fromPracticeWord + "\" to " + char.ToUpper(toLanguage[0]) + toLanguage.Substring(1).ToLower() + ": ");
+                    inputWord = Console.ReadLine();
+
+                    if (inputWord.Equals(""))
+                    {
+                        break;
+                    }
+
+                    ++numberOfWordsPracticed;
+
+                    if (inputWord.ToLower().Equals(toPracticeWord.ToLower()))
+                    {
+                        ++numberOfCorrectWordsPracticed;
+                        Console.WriteLine("Correct!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect.  The correct translation is: " + toPracticeWord);
+                    }
+                } while (!inputWord.Equals(""));
+
+                Console.WriteLine("Words practiced: " + numberOfWordsPracticed);
+                Console.WriteLine("Words correct: " + numberOfCorrectWordsPracticed);
+            }
+            else
+            {
+                Console.Error.WriteLine("Error: unable to load list \"" + listName + "\"");
+            }  
         }
 
         static void RunLibraryTests()
@@ -45,7 +381,7 @@ namespace Console_Vocabulary_Training
             WordList list3 = new WordList("two_languages", languages1);
             list3.Save();
 
-            string[] translations1 = { "hi", "hola" };
+            string[] translations1 = { "hello", "hola" };
             list3.Add(translations1);
             list3.Save();
 
@@ -146,36 +482,35 @@ namespace Console_Vocabulary_Training
             list5.List(4, showTranslations);
 
             Word practiceWord;
-            practiceWord = list5.GetWordtoPractice();
-            Console.WriteLine("FromLanguage: " + practiceWord.Translation[practiceWord.FromLanguage] +
+            practiceWord = list5.GetWordToPractice();
+            Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
                 " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
-            Console.WriteLine("FromLanguage: " + practiceWord.Translation[practiceWord.FromLanguage] +
+            Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
                 " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
-            Console.WriteLine("FromLanguage: " + practiceWord.Translation[practiceWord.FromLanguage] +
+            Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
                 " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
-            Console.WriteLine("FromLanguage: " + practiceWord.Translation[practiceWord.FromLanguage] +
+            Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
                 " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
-            Console.WriteLine("FromLanguage: " + practiceWord.Translation[practiceWord.FromLanguage] +
+            Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
                 " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
-
         }
 
         static void PrintSortedList(string[] words)
@@ -189,6 +524,9 @@ namespace Console_Vocabulary_Training
         }
     }
 }
+
+
+ 
 
 
 

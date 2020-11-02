@@ -51,9 +51,9 @@ namespace ClassLibrary
                         using StreamReader reader = new StreamReader(file);
                         line = reader.ReadLine();
 
-                    if (line[line.Length-1] == ';')
+                    if (line[line.Length - 1] == ';')
                     {
-                        line = line[0..^1];
+                        line = line.Substring(0, line.Length - 1);
                     }
                     loadedList = new WordList(name, line.Split(';'));
 
@@ -61,9 +61,10 @@ namespace ClassLibrary
                     {
                         line = reader.ReadLine();
 
-                        if (line[^1] == ';')
+                        if (line[line.Length - 1] == ';')
                         {
-                            line = line[0..^1];
+                            line = line.Substring(0, line.Length - 1); 
+
                         }
                     }
 
@@ -122,26 +123,7 @@ namespace ClassLibrary
 
     public void Add(params string[] translations)
     {
-        int numLanguagesInList = 0;
-
-        try
-        {
-            using StreamReader reader = new StreamReader(dictionaryPath + directorySeparator + Name + ".dat");
-            String firstLine = reader.ReadLine();
-
-            if (firstLine[^1] == ';')
-            {
-                firstLine = firstLine[0..^1];
-            }
-
-            numLanguagesInList = firstLine.Split(':').Length;
-            reader.Close();
-        }
-        catch (Exception e)
-        {
-            Console.Error.WriteLine(e.Message);
-            Console.Error.WriteLine(e.StackTrace);
-        }
+        int numLanguagesInList = Languages.Length;
 
         if (translations.Length != numLanguagesInList)
         {
@@ -172,7 +154,7 @@ namespace ClassLibrary
 
     public int Count()
     {
-        int WordCount = 0;
+        int wordCount = 0;
 
         try
         {
@@ -183,7 +165,7 @@ namespace ClassLibrary
             while (reader.Peek() > 0)
             {
                 reader.ReadLine();
-                ++WordCount;
+                ++wordCount;
             }
 
             reader.Close();
@@ -194,7 +176,7 @@ namespace ClassLibrary
             Console.Error.WriteLine(e.StackTrace);
         }
 
-        return WordCount;
+        return wordCount;
     }
 
     public void List(int sortByTranslation, Action<string[]> showTranslations)
