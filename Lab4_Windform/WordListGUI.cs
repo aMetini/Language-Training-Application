@@ -1,14 +1,9 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 
 namespace Lab4_Windform
@@ -124,11 +119,11 @@ namespace Lab4_Windform
                     {
                         if (index == 0)
                         {
-                            Console.WriteLine("Add new word to list in" + language + ": ");
+                            Console.Write("Add new word to list in" + language + ": ");
                         }
                         else
                         {
-                            Console.WriteLine("Add word translation to list in" + language + ": ");
+                            Console.Write("Add word translation to list in" + language + ": ");
                         }
 
                         inputWord = Console.ReadLine();
@@ -188,7 +183,7 @@ namespace Lab4_Windform
             Console.WriteLine("Command complete: " + parameters.ToString() + "\n");
         }
 
-        private void RemoveWordsFromDictionary(string listName, string langugage, string[] words)
+        private void RemoveWordsFromDictionary(string listName, string language, string[] words)
         {
             WordList wordList = WordList.LoadList(listName);
             int languageIndex = 0;
@@ -199,7 +194,7 @@ namespace Lab4_Windform
             {
                 foreach (string lang in wordList.Languages)
                 {
-                    if (lang.ToLower().Equals(langugage.ToLower()))
+                    if (lang.ToLower().Equals(language.ToLower()))
                     {
                         languageFound = true;
                         break;
@@ -215,14 +210,14 @@ namespace Lab4_Windform
                         bool result = wordList.Remove(languageIndex, word);
                         if (result == true)
                         {
-                            Console.WriteLine("Succesffuly removed the " + languageIndex + "word(s): ");
+                            Console.WriteLine("Successfully removed the " + language + " word\"" + word + "\"");
                             wordList.Save();
                             wordFound = true;
                         }
                     }
                     if (wordFound == false)
                     {
-                        Console.Error.Write("Error: unable to find\remove the " + langugage + "word(s): ");
+                        Console.Error.Write("Error: unable to find/remove the " + language + "word(s): ");
 
                         for (int i = 0; i < words.Length; ++i)
                         {
@@ -241,7 +236,7 @@ namespace Lab4_Windform
                 }
                 else
                 {
-                    Console.Error.WriteLine("Error: the language \"" + langugage + "\" does not exist in the list " + listName);
+                    Console.Error.WriteLine("Error: the language \"" + language + "\" does not exist in the list " + listName);
                 }
             }
             else
@@ -432,6 +427,73 @@ namespace Lab4_Windform
             }
 
             Console.WriteLine("");
+        }
+
+        private void buttonRunAdd_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRunRemove_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonRunWord_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void buttonRunPractice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBoxNewParams_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxAddParams_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxRemoveParams_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxWordParms_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCountParms_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxPracticeParams_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using ClassLibrary;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace Console_Vocabulary_Training
 {
@@ -13,18 +11,18 @@ namespace Console_Vocabulary_Training
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Use any of the following parameters:\n" +
+                Console.Error.WriteLine("Use any of the following parameters:\n" +
                     "-lists\n" +
                     "-new <list name> <language 1> <language 2> .. <language n>\n" +
-                    "-add <list names>\n" +
+                    "-add <list name>\n" +
                     "-remove <list name> <language> <word 1> <word 2> .. <word n>\n" +
-                    "-words <list name> <sortByLanguage>" +
-                    "-count <list name>" +
+                    "-words <list name> <sortByLanguage>\n" +
+                    "-count <list name>\n" +
                     "-practice <list name>\n");
             }
             else if (args.Length > 0)
             {
-                if (args[0].Equals("-list"))
+                if (args[0].Equals("-lists"))
                 {
                     GetListOfDictionaries();
                 }
@@ -33,7 +31,7 @@ namespace Console_Vocabulary_Training
                     if (args.Length < 4)
                     {
                         Console.WriteLine("Input parameter error:\n" +
-                            "-new <listname> <language 1> <language 2> .. <language n>\n");
+                            "-new <list name> <language 1> <language 2> .. <language n>\n");
                         return;
                     }
 
@@ -43,7 +41,7 @@ namespace Console_Vocabulary_Training
                 {
                     if (args.Length != 2)
                     {
-                        Console.WriteLine("Input parameter error: \n" +
+                        Console.WriteLine("Input parameter error:\n" +
                         "-add <list name>\n");
                         return;
                     }
@@ -55,7 +53,7 @@ namespace Console_Vocabulary_Training
                     if (args.Length <= 3)
                     {
                         Console.WriteLine("Input parameter error:\n" +
-                            "remove <list name> <language> <word 1> <word 2> .. <word n>");
+                            "-remove <list name> <language> <word 1> <word 2> .. <word n>");
                         return;
                     }
 
@@ -103,9 +101,9 @@ namespace Console_Vocabulary_Training
                     Console.Error.WriteLine("Error: unsupported parameter detected");
                     Console.Error.WriteLine("Use any of the following parameters:\n" +
                         "-lists\n" +
-                        "-new <list name>\n" +
+                        "-new <list name> <language 1> <language 2> .. <language n>\n" +
                         "-add <list name>\n" +
-                        "-remove <list name> <language 1> <language 2> .. <language n>\n" +
+                        "-remove <list name> <language> <word 1> <word 2> .. <word n>\n" +
                         "-words <list name> <sortByLanguage>\n" +
                         "-count <list name>\n" +
                         "-practice <list name>\n");
@@ -219,7 +217,7 @@ namespace Console_Vocabulary_Training
                         bool result = wordList.Remove(languageIndex, word);
                         if (result == true)
                         {
-                            Console.WriteLine("Sucessfully removed the " + language + " word \"" + word + "\"");
+                            Console.WriteLine("Successfully removed the " + language + " word \"" + word + "\"");
                             wordList.Save();
                             wordFound = true;
                         }
@@ -281,7 +279,7 @@ namespace Console_Vocabulary_Training
                 }
                 else
                 {
-                    Console.Error.WriteLine("Error: the language \"" + language + "\" does not existin the list " + listName);
+                    Console.Error.WriteLine("Error: the language \"" + language + "\" does not exist in the list " + listName);
                 }
             }
             else
@@ -316,11 +314,11 @@ namespace Console_Vocabulary_Training
             {
                 do
                 {
-                    Word PracticeWord = wordList.GetWordToPractice();
-                    string fromLanguage = wordList.Languages[PracticeWord.FromLanguage];
-                    string fromPracticeWord = PracticeWord.Translations[PracticeWord.FromLanguage];
-                    string toLanguage = wordList.Languages[PracticeWord.ToLanguage];
-                    string toPracticeWord = PracticeWord.Translations[PracticeWord.ToLanguage];
+                    Word practiceWord = wordList.GetWordToPractice();
+                    string fromLanguage = wordList.Languages[practiceWord.FromLanguage];
+                    string fromPracticeWord = practiceWord.Translations[practiceWord.FromLanguage];
+                    string toLanguage = wordList.Languages[practiceWord.ToLanguage];
+                    string toPracticeWord = practiceWord.Translations[practiceWord.ToLanguage];
 
                     Console.Write("Translate the " + char.ToUpper(fromLanguage[0]) + fromLanguage.Substring(1).ToLower() +
                         " word \"" + fromPracticeWord + "\" to " + char.ToUpper(toLanguage[0]) + toLanguage.Substring(1).ToLower() + ": ");
@@ -427,7 +425,7 @@ namespace Console_Vocabulary_Training
             string[] translations6 = { "hello", "hola", "hej" };
             list5.Add(translations6);
 
-            string[] translations7 = { "goodbye", "adios", "hejdå" };
+            string[] translations7 = { "goodbye", "adiós", "hejdå" };
             list5.Add(translations7);
 
             string[] translations8 = { "bad", "bad", "bad" };
@@ -458,7 +456,7 @@ namespace Console_Vocabulary_Training
             string[] translations9 = { "slow", "lento", "långsam" };
             list5.Add(translations9);
 
-            string[] translations10 = { "fast", "rapido", "snabb" };
+            string[] translations10 = { "fast", "rápido", "snabb" };
             list5.Add(translations10);
             list5.Save();
 
@@ -484,31 +482,31 @@ namespace Console_Vocabulary_Training
             Word practiceWord;
             practiceWord = list5.GetWordToPractice();
             Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
-                " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
+                " (" + practiceWord.FromLanguage + ")  |  ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
             Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
-                " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
+                " (" + practiceWord.FromLanguage + ")  |  ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
             Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
-                " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
+                " (" + practiceWord.FromLanguage + ")  |  ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
             Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
-                " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
+                " (" + practiceWord.FromLanguage + ")  |  ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
 
             practiceWord = list5.GetWordToPractice();
             Console.WriteLine("FromLanguage: " + practiceWord.Translations[practiceWord.FromLanguage] +
-                " (" + practiceWord.FromLanguage + ") | ToLanguage: " +
+                " (" + practiceWord.FromLanguage + ")  |  ToLanguage: " +
                 practiceWord.Translations[practiceWord.ToLanguage] +
                 " (" + practiceWord.ToLanguage + ")");
         }
