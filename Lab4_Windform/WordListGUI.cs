@@ -60,7 +60,7 @@ namespace Lab4_Windform
                 CreateNewList(args.ToArray());
             }
             Console.WriteLine("------------------------------");
-            Console.WriteLine("Command Complete: -list\n");
+            Console.WriteLine("Command Complete: " + parameters.ToString() + "\n");
         }
 
         private void CreateNewList(string[] inputParams)
@@ -82,8 +82,8 @@ namespace Lab4_Windform
         {
             List<string> args = new List<string>();
             StringBuilder parameters = new StringBuilder();
-            args.Add(labelAddCmd.Text);
-            parameters.Append(labelAddCmd.Text);
+            args.Add(labelAddCmdLabel.Text);
+            parameters.Append(labelAddCmdLabel.Text);
             foreach (string param in textBoxAddParams.Text.Split(' '))
             {
                 args.Add(param);
@@ -119,11 +119,11 @@ namespace Lab4_Windform
                     {
                         if (index == 0)
                         {
-                            Console.Write("Add new word to list in" + language + ": ");
+                            Console.Write("Add new word to list in " + language + ": ");
                         }
                         else
                         {
-                            Console.Write("Add word translation to list in" + language + ": ");
+                            Console.Write("Add word translation to list in " + language + ": ");
                         }
 
                         inputWord = Console.ReadLine();
@@ -161,8 +161,8 @@ namespace Lab4_Windform
         {
             List<string> args = new List<string>();
             StringBuilder parameters = new StringBuilder();
-            args.Add(labelRemoveCmd.Text);
-            parameters.Append(labelRemoveCmd);
+            args.Add(labelRmvCmdLabel.Text);
+            parameters.Append(labelRmvCmdLabel.Text);
             foreach (string param in textBoxRemoveParams.Text.Split(' '))
             {
                 args.Add(param);
@@ -249,8 +249,8 @@ namespace Lab4_Windform
         {
             List<string> args = new List<string>();
             StringBuilder parameters = new StringBuilder();
-            args.Add(labelWordCmd.Text);
-            parameters.Append(labelWordCmd.Text);
+            args.Add(labelWordCmdLabel.Text);
+            parameters.Append(labelWordCmdLabel.Text);
             foreach (string param in textBoxWordParms.Text.Split(' '))
             {
                 args.Add(param);
@@ -308,8 +308,8 @@ namespace Lab4_Windform
         {
             List<string> args = new List<string>();
             StringBuilder parameters = new StringBuilder();
-            args.Add(labelCountCmd.Text);
-            parameters.Append(labelCountCmd.Text);
+            args.Add(labelCountCmdLabel.Text);
+            parameters.Append(labelCountCmdLabel.Text);
             foreach (string param in textBoxCountParms.Text.Split(' '))
             {
                 args.Add(param);
@@ -345,12 +345,12 @@ namespace Lab4_Windform
             }
         }
 
-        private void buttonRunPractice_Click(ObjectSecurity sender, EventArgs e)
+        private void buttonRunPractice_Click(object sender, EventArgs e)
         {
             List<string> args = new List<string>();
             StringBuilder parameters = new StringBuilder();
-            args.Add(labelPracticeCmd.Text);
-            parameters.Append(labelPracticeCmd.Text);
+            args.Add(labelPracticeCmdLabel.Text);
+            parameters.Append(labelPracticeCmdLabel.Text);
             foreach (string param in textBoxPracticeParams.Text.Split(' '))
             {
                 args.Add(param);
@@ -374,7 +374,7 @@ namespace Lab4_Windform
         private void PracticeWordsInDictionary(string listName)
         {
             WordList wordList = WordList.LoadList(listName);
-            string inputWord = "";
+            string inputWord;
             int numberOfWordsPracticed = 0;
             int numberOfCorrectWordsPracticed = 0;
 
@@ -389,7 +389,7 @@ namespace Lab4_Windform
                     string toPracticeWord = practiceWord.Translations[practiceWord.ToLanguage];
 
                     Console.Write("Translate the " + char.ToUpper(fromLanguage[0]) + fromLanguage.Substring(1).ToLower() +
-                        " word \"" + practiceWord + "\" to " + char.ToUpper(toLanguage[0]) + toLanguage.Substring(1).ToLower() + ": ");
+                        " word \"" + fromPracticeWord + "\" to " + char.ToUpper(toLanguage[0]) + toLanguage.Substring(1).ToLower() + ": ");
                     inputWord = Console.ReadLine();
 
                     if (inputWord.Equals(""))
@@ -429,71 +429,5 @@ namespace Lab4_Windform
             Console.WriteLine("");
         }
 
-        private void buttonRunAdd_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRunRemove_Click1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonRunWord_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void buttonRunPractice_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBoxNewParams_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxAddParams_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxRemoveParams_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxWordParms_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCountParms_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPracticeParams_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
