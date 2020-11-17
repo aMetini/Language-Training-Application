@@ -1,6 +1,6 @@
 ﻿namespace Lab4_Windform
 {
-    public partial class WordListGUI
+    public partial class Lab4_WindForm
     {
         /// <summary>
         /// Required designer variable.
@@ -62,6 +62,7 @@
             this.labelAddCmd = new System.Windows.Forms.Label();
             this.labelNewParams = new System.Windows.Forms.Label();
             this.labelRemoveCmd = new System.Windows.Forms.Label();
+            this.textBoxConsole = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,38 +107,40 @@
             this.tableLayoutPanel1.Controls.Add(this.labelAddCmd, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.labelNewParams, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.labelRemoveCmd, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxConsole, 1, 14);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 15;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142856F));
+            this.tableLayoutPanel1.RowCount = 16;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142859F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 500F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1444, 1329);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1444, 1393);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelPracticeParams
             // 
             this.labelPracticeParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPracticeParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPracticeParams.Location = new System.Drawing.Point(317, 1134);
+            this.labelPracticeParams.Location = new System.Drawing.Point(317, 762);
             this.labelPracticeParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelPracticeParams.Name = "labelPracticeParams";
-            this.labelPracticeParams.Size = new System.Drawing.Size(891, 82);
+            this.labelPracticeParams.Size = new System.Drawing.Size(891, 51);
             this.labelPracticeParams.TabIndex = 34;
             this.labelPracticeParams.Text = "<List Name>";
             this.labelPracticeParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -146,10 +149,10 @@
             // 
             this.labelCountParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCountParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountParams.Location = new System.Drawing.Point(317, 946);
+            this.labelCountParams.Location = new System.Drawing.Point(317, 636);
             this.labelCountParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelCountParams.Name = "labelCountParams";
-            this.labelCountParams.Size = new System.Drawing.Size(891, 82);
+            this.labelCountParams.Size = new System.Drawing.Size(891, 51);
             this.labelCountParams.TabIndex = 33;
             this.labelCountParams.Text = "<List Name>";
             this.labelCountParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,10 +161,10 @@
             // 
             this.labelWordParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelWordParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWordParams.Location = new System.Drawing.Point(317, 758);
+            this.labelWordParams.Location = new System.Drawing.Point(317, 510);
             this.labelWordParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelWordParams.Name = "labelWordParams";
-            this.labelWordParams.Size = new System.Drawing.Size(891, 82);
+            this.labelWordParams.Size = new System.Drawing.Size(891, 51);
             this.labelWordParams.TabIndex = 32;
             this.labelWordParams.Text = "<List Name> <SortByLanguage>";
             this.labelWordParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -170,10 +173,10 @@
             // 
             this.labelRemoveParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelRemoveParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRemoveParams.Location = new System.Drawing.Point(317, 570);
+            this.labelRemoveParams.Location = new System.Drawing.Point(317, 384);
             this.labelRemoveParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelRemoveParams.Name = "labelRemoveParams";
-            this.labelRemoveParams.Size = new System.Drawing.Size(891, 82);
+            this.labelRemoveParams.Size = new System.Drawing.Size(891, 51);
             this.labelRemoveParams.TabIndex = 31;
             this.labelRemoveParams.Text = "<List Name> <Language> <Word 1> <Word 2> .. <Word N>";
             this.labelRemoveParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,10 +185,10 @@
             // 
             this.labelAddParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelAddParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddParams.Location = new System.Drawing.Point(317, 382);
+            this.labelAddParams.Location = new System.Drawing.Point(317, 258);
             this.labelAddParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelAddParams.Name = "labelAddParams";
-            this.labelAddParams.Size = new System.Drawing.Size(891, 82);
+            this.labelAddParams.Size = new System.Drawing.Size(891, 51);
             this.labelAddParams.TabIndex = 30;
             this.labelAddParams.Text = "<List Name>";
             this.labelAddParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -194,7 +197,7 @@
             // 
             this.textBoxPracticeParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxPracticeParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPracticeParams.Location = new System.Drawing.Point(311, 1224);
+            this.textBoxPracticeParams.Location = new System.Drawing.Point(311, 821);
             this.textBoxPracticeParams.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxPracticeParams.Name = "textBoxPracticeParams";
             this.textBoxPracticeParams.Size = new System.Drawing.Size(898, 40);
@@ -204,7 +207,7 @@
             // 
             this.textBoxCountParms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxCountParms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCountParms.Location = new System.Drawing.Point(311, 1036);
+            this.textBoxCountParms.Location = new System.Drawing.Point(311, 695);
             this.textBoxCountParms.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxCountParms.Name = "textBoxCountParms";
             this.textBoxCountParms.Size = new System.Drawing.Size(898, 40);
@@ -214,7 +217,7 @@
             // 
             this.textBoxWordParms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxWordParms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWordParms.Location = new System.Drawing.Point(311, 848);
+            this.textBoxWordParms.Location = new System.Drawing.Point(311, 569);
             this.textBoxWordParms.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxWordParms.Name = "textBoxWordParms";
             this.textBoxWordParms.Size = new System.Drawing.Size(898, 40);
@@ -224,10 +227,10 @@
             // 
             this.buttonRunPractice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunPractice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunPractice.Location = new System.Drawing.Point(1214, 1222);
+            this.buttonRunPractice.Location = new System.Drawing.Point(1214, 819);
             this.buttonRunPractice.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunPractice.Name = "buttonRunPractice";
-            this.buttonRunPractice.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunPractice.Size = new System.Drawing.Size(220, 63);
             this.buttonRunPractice.TabIndex = 26;
             this.buttonRunPractice.Text = "Run -practice";
             this.buttonRunPractice.UseVisualStyleBackColor = true;
@@ -237,10 +240,10 @@
             // 
             this.buttonRunCount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunCount.Location = new System.Drawing.Point(1214, 1034);
+            this.buttonRunCount.Location = new System.Drawing.Point(1214, 693);
             this.buttonRunCount.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunCount.Name = "buttonRunCount";
-            this.buttonRunCount.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunCount.Size = new System.Drawing.Size(220, 63);
             this.buttonRunCount.TabIndex = 25;
             this.buttonRunCount.Text = "Run -count";
             this.buttonRunCount.UseVisualStyleBackColor = true;
@@ -250,10 +253,10 @@
             // 
             this.buttonRunWords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunWords.Location = new System.Drawing.Point(1214, 846);
+            this.buttonRunWords.Location = new System.Drawing.Point(1214, 567);
             this.buttonRunWords.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunWords.Name = "buttonRunWords";
-            this.buttonRunWords.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunWords.Size = new System.Drawing.Size(220, 63);
             this.buttonRunWords.TabIndex = 24;
             this.buttonRunWords.Text = "Run -words";
             this.buttonRunWords.UseVisualStyleBackColor = true;
@@ -265,10 +268,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPracticeCmdLabel.AutoSize = true;
             this.labelPracticeCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPracticeCmdLabel.Location = new System.Drawing.Point(183, 1225);
+            this.labelPracticeCmdLabel.Location = new System.Drawing.Point(183, 822);
             this.labelPracticeCmdLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelPracticeCmdLabel.Name = "labelPracticeCmdLabel";
-            this.labelPracticeCmdLabel.Size = new System.Drawing.Size(128, 88);
+            this.labelPracticeCmdLabel.Size = new System.Drawing.Size(128, 57);
             this.labelPracticeCmdLabel.TabIndex = 23;
             this.labelPracticeCmdLabel.Text = "-practice";
             this.labelPracticeCmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -279,10 +282,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCountCmdLabel.AutoSize = true;
             this.labelCountCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountCmdLabel.Location = new System.Drawing.Point(215, 1037);
+            this.labelCountCmdLabel.Location = new System.Drawing.Point(215, 696);
             this.labelCountCmdLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelCountCmdLabel.Name = "labelCountCmdLabel";
-            this.labelCountCmdLabel.Size = new System.Drawing.Size(96, 88);
+            this.labelCountCmdLabel.Size = new System.Drawing.Size(96, 57);
             this.labelCountCmdLabel.TabIndex = 22;
             this.labelCountCmdLabel.Text = "-count";
             this.labelCountCmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -293,10 +296,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelWordCmdLabel.AutoSize = true;
             this.labelWordCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWordCmdLabel.Location = new System.Drawing.Point(223, 849);
+            this.labelWordCmdLabel.Location = new System.Drawing.Point(223, 570);
             this.labelWordCmdLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelWordCmdLabel.Name = "labelWordCmdLabel";
-            this.labelWordCmdLabel.Size = new System.Drawing.Size(88, 88);
+            this.labelWordCmdLabel.Size = new System.Drawing.Size(88, 57);
             this.labelWordCmdLabel.TabIndex = 21;
             this.labelWordCmdLabel.Text = "-word";
             this.labelWordCmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -305,7 +308,7 @@
             // 
             this.labelWordCmd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelWordCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWordCmd.Location = new System.Drawing.Point(14, 767);
+            this.labelWordCmd.Location = new System.Drawing.Point(14, 504);
             this.labelWordCmd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelWordCmd.Name = "labelWordCmd";
             this.labelWordCmd.Size = new System.Drawing.Size(293, 63);
@@ -317,7 +320,7 @@
             // 
             this.labelPracticeCmd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelPracticeCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPracticeCmd.Location = new System.Drawing.Point(14, 1143);
+            this.labelPracticeCmd.Location = new System.Drawing.Point(14, 756);
             this.labelPracticeCmd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPracticeCmd.Name = "labelPracticeCmd";
             this.labelPracticeCmd.Size = new System.Drawing.Size(293, 63);
@@ -329,7 +332,7 @@
             // 
             this.labelCountCmd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelCountCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountCmd.Location = new System.Drawing.Point(14, 955);
+            this.labelCountCmd.Location = new System.Drawing.Point(14, 630);
             this.labelCountCmd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCountCmd.Name = "labelCountCmd";
             this.labelCountCmd.Size = new System.Drawing.Size(293, 63);
@@ -341,7 +344,7 @@
             // 
             this.textBoxRemoveParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxRemoveParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRemoveParams.Location = new System.Drawing.Point(311, 660);
+            this.textBoxRemoveParams.Location = new System.Drawing.Point(311, 443);
             this.textBoxRemoveParams.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxRemoveParams.Name = "textBoxRemoveParams";
             this.textBoxRemoveParams.Size = new System.Drawing.Size(898, 40);
@@ -353,10 +356,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRmvCmdLabel.AutoSize = true;
             this.labelRmvCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRmvCmdLabel.Location = new System.Drawing.Point(188, 661);
+            this.labelRmvCmdLabel.Location = new System.Drawing.Point(188, 444);
             this.labelRmvCmdLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelRmvCmdLabel.Name = "labelRmvCmdLabel";
-            this.labelRmvCmdLabel.Size = new System.Drawing.Size(123, 88);
+            this.labelRmvCmdLabel.Size = new System.Drawing.Size(123, 57);
             this.labelRmvCmdLabel.TabIndex = 15;
             this.labelRmvCmdLabel.Text = "-remove";
             this.labelRmvCmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -365,7 +368,7 @@
             // 
             this.textBoxAddParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxAddParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddParams.Location = new System.Drawing.Point(311, 472);
+            this.textBoxAddParams.Location = new System.Drawing.Point(311, 317);
             this.textBoxAddParams.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxAddParams.Name = "textBoxAddParams";
             this.textBoxAddParams.Size = new System.Drawing.Size(898, 40);
@@ -377,10 +380,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAddCmdLabel.AutoSize = true;
             this.labelAddCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddCmdLabel.Location = new System.Drawing.Point(238, 473);
+            this.labelAddCmdLabel.Location = new System.Drawing.Point(238, 318);
             this.labelAddCmdLabel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelAddCmdLabel.Name = "labelAddCmdLabel";
-            this.labelAddCmdLabel.Size = new System.Drawing.Size(73, 88);
+            this.labelAddCmdLabel.Size = new System.Drawing.Size(73, 57);
             this.labelAddCmdLabel.TabIndex = 13;
             this.labelAddCmdLabel.Text = "-add";
             this.labelAddCmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -389,10 +392,10 @@
             // 
             this.buttonRunRemove.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunRemove.Location = new System.Drawing.Point(1214, 658);
+            this.buttonRunRemove.Location = new System.Drawing.Point(1214, 441);
             this.buttonRunRemove.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunRemove.Name = "buttonRunRemove";
-            this.buttonRunRemove.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunRemove.Size = new System.Drawing.Size(220, 63);
             this.buttonRunRemove.TabIndex = 11;
             this.buttonRunRemove.Text = "Run -remove";
             this.buttonRunRemove.UseVisualStyleBackColor = true;
@@ -402,10 +405,10 @@
             // 
             this.buttonRunNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunNew.Location = new System.Drawing.Point(1214, 282);
+            this.buttonRunNew.Location = new System.Drawing.Point(1214, 189);
             this.buttonRunNew.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunNew.Name = "buttonRunNew";
-            this.buttonRunNew.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunNew.Size = new System.Drawing.Size(220, 63);
             this.buttonRunNew.TabIndex = 7;
             this.buttonRunNew.Text = "Run -new";
             this.buttonRunNew.UseVisualStyleBackColor = true;
@@ -415,7 +418,7 @@
             // 
             this.labelListComdLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelListComdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelListComdLabel.Location = new System.Drawing.Point(14, 22);
+            this.labelListComdLabel.Location = new System.Drawing.Point(14, 6);
             this.labelListComdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelListComdLabel.Name = "labelListComdLabel";
             this.labelListComdLabel.Size = new System.Drawing.Size(290, 50);
@@ -429,10 +432,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelLstCmd.AutoSize = true;
             this.labelLstCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLstCmd.Location = new System.Drawing.Point(249, 97);
+            this.labelLstCmd.Location = new System.Drawing.Point(249, 66);
             this.labelLstCmd.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelLstCmd.Name = "labelLstCmd";
-            this.labelLstCmd.Size = new System.Drawing.Size(62, 88);
+            this.labelLstCmd.Size = new System.Drawing.Size(62, 57);
             this.labelLstCmd.TabIndex = 1;
             this.labelLstCmd.Text = "-list";
             this.labelLstCmd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -441,10 +444,10 @@
             // 
             this.buttonRunList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunList.Location = new System.Drawing.Point(1214, 94);
+            this.buttonRunList.Location = new System.Drawing.Point(1214, 63);
             this.buttonRunList.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunList.Name = "buttonRunList";
-            this.buttonRunList.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunList.Size = new System.Drawing.Size(220, 63);
             this.buttonRunList.TabIndex = 2;
             this.buttonRunList.Text = "Run -list";
             this.buttonRunList.UseVisualStyleBackColor = true;
@@ -454,7 +457,7 @@
             // 
             this.textBoxNewParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxNewParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNewParams.Location = new System.Drawing.Point(311, 284);
+            this.textBoxNewParams.Location = new System.Drawing.Point(311, 191);
             this.textBoxNewParams.Margin = new System.Windows.Forms.Padding(0, 2, 5, 0);
             this.textBoxNewParams.Name = "textBoxNewParams";
             this.textBoxNewParams.Size = new System.Drawing.Size(898, 40);
@@ -464,10 +467,10 @@
             // 
             this.buttonRunAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonRunAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRunAdd.Location = new System.Drawing.Point(1214, 470);
+            this.buttonRunAdd.Location = new System.Drawing.Point(1214, 315);
             this.buttonRunAdd.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRunAdd.Name = "buttonRunAdd";
-            this.buttonRunAdd.Size = new System.Drawing.Size(220, 94);
+            this.buttonRunAdd.Size = new System.Drawing.Size(220, 63);
             this.buttonRunAdd.TabIndex = 10;
             this.buttonRunAdd.Text = "Run -add";
             this.buttonRunAdd.UseVisualStyleBackColor = true;
@@ -479,10 +482,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelCmdNew.AutoSize = true;
             this.labelCmdNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCmdNew.Location = new System.Drawing.Point(233, 285);
+            this.labelCmdNew.Location = new System.Drawing.Point(233, 192);
             this.labelCmdNew.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelCmdNew.Name = "labelCmdNew";
-            this.labelCmdNew.Size = new System.Drawing.Size(78, 88);
+            this.labelCmdNew.Size = new System.Drawing.Size(78, 57);
             this.labelCmdNew.TabIndex = 4;
             this.labelCmdNew.Text = "-new";
             this.labelCmdNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -491,7 +494,7 @@
             // 
             this.labelNewCmdLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelNewCmdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNewCmdLabel.Location = new System.Drawing.Point(14, 210);
+            this.labelNewCmdLabel.Location = new System.Drawing.Point(14, 132);
             this.labelNewCmdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNewCmdLabel.Name = "labelNewCmdLabel";
             this.labelNewCmdLabel.Size = new System.Drawing.Size(290, 50);
@@ -503,7 +506,7 @@
             // 
             this.labelAddCmd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelAddCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddCmd.Location = new System.Drawing.Point(14, 398);
+            this.labelAddCmd.Location = new System.Drawing.Point(14, 258);
             this.labelAddCmd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAddCmd.Name = "labelAddCmd";
             this.labelAddCmd.Size = new System.Drawing.Size(290, 50);
@@ -515,10 +518,10 @@
             // 
             this.labelNewParams.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelNewParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNewParams.Location = new System.Drawing.Point(317, 194);
+            this.labelNewParams.Location = new System.Drawing.Point(317, 132);
             this.labelNewParams.Margin = new System.Windows.Forms.Padding(6);
             this.labelNewParams.Name = "labelNewParams";
-            this.labelNewParams.Size = new System.Drawing.Size(891, 82);
+            this.labelNewParams.Size = new System.Drawing.Size(891, 51);
             this.labelNewParams.TabIndex = 5;
             this.labelNewParams.Text = "<List Name> <Language 1> <Language 2> ..<Language N>";
             this.labelNewParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -527,7 +530,7 @@
             // 
             this.labelRemoveCmd.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelRemoveCmd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRemoveCmd.Location = new System.Drawing.Point(14, 579);
+            this.labelRemoveCmd.Location = new System.Drawing.Point(14, 378);
             this.labelRemoveCmd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRemoveCmd.Name = "labelRemoveCmd";
             this.labelRemoveCmd.Size = new System.Drawing.Size(293, 63);
@@ -535,12 +538,26 @@
             this.labelRemoveCmd.Text = "Remove Command: ";
             this.labelRemoveCmd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // textBoxConsole
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.textBoxConsole, 3);
+            this.textBoxConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConsole.Location = new System.Drawing.Point(10, 912);
+            this.textBoxConsole.Margin = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.textBoxConsole.Multiline = true;
+            this.textBoxConsole.Name = "textBoxConsole";
+            this.textBoxConsole.ReadOnly = true;
+            this.textBoxConsole.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxConsole.Size = new System.Drawing.Size(1424, 470);
+            this.textBoxConsole.TabIndex = 35;
+            // 
             // WordListGUI
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1444, 1329);
+            this.ClientSize = new System.Drawing.Size(1444, 1393);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WordListGUI";
@@ -589,6 +606,7 @@
         private System.Windows.Forms.Label labelWordParams;
         private System.Windows.Forms.Label labelPracticeParams;
         private System.Windows.Forms.Label labelCountParams;
+        private System.Windows.Forms.TextBox textBoxConsole;
     }
 }
 

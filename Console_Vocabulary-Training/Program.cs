@@ -121,7 +121,14 @@ namespace Console_Vocabulary_Training
 
         static void CreateNewList(string [] inputParams)
         {
-            WordList wordList = new WordList(inputParams[1], new ArraySegment<string>(inputParams, 2, inputParams.Length - 2).Array);
+            List<string> languages = new List<string>();
+            for (int i = 2; i < inputParams.Length; ++i)
+            {
+                languages.Add(inputParams[i]);
+            }
+
+            WordList wordList = new WordList(inputParams[1], languages.ToArray());
+            
 
             if (wordList != null)
             {

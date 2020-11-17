@@ -16,7 +16,7 @@ namespace Lab4_Windform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WordListGUI());
+            Application.Run(new Lab4_WindForm());
         }
     }
 }

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{472F4A08-F93B-4D45-A0AC-84CD8C94ADEE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Lab4_Windform</RootNamespace>
     <AssemblyName>Lab4_Windform</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -50,16 +50,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WordListGUI.cs">
+    <Compile Include="InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WordListGUI.Designer.cs">
-      <DependentUpon>WordListGUI.cs</DependentUpon>
+    <Compile Include="TextBoxStreamWriter.cs" />
+    <Compile Include="Lab4_WindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lab4_WindForm.Designer.cs">
+      <DependentUpon>Lab4_WindForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="WordListGUI.resx">
-      <DependentUpon>WordListGUI.cs</DependentUpon>
+    <EmbeddedResource Include="InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lab4_WindForm.resx">
+      <DependentUpon>Lab4_WindForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
