@@ -349,6 +349,7 @@
             this.textBoxRemoveParams.Name = "textBoxRemoveParams";
             this.textBoxRemoveParams.Size = new System.Drawing.Size(898, 40);
             this.textBoxRemoveParams.TabIndex = 17;
+            this.textBoxRemoveParams.Text = "My List";
             // 
             // labelRmvCmdLabel
             // 
@@ -373,6 +374,7 @@
             this.textBoxAddParams.Name = "textBoxAddParams";
             this.textBoxAddParams.Size = new System.Drawing.Size(898, 40);
             this.textBoxAddParams.TabIndex = 14;
+            this.textBoxAddParams.Text = "Hi, hola";
             // 
             // labelAddCmdLabel
             // 
@@ -462,6 +464,7 @@
             this.textBoxNewParams.Name = "textBoxNewParams";
             this.textBoxNewParams.Size = new System.Drawing.Size(898, 40);
             this.textBoxNewParams.TabIndex = 6;
+            this.textBoxNewParams.Text = "My List, english, spanish";
             // 
             // buttonRunAdd
             // 
@@ -552,7 +555,7 @@
             this.textBoxConsole.Size = new System.Drawing.Size(1424, 470);
             this.textBoxConsole.TabIndex = 35;
             // 
-            // WordListGUI
+            // Lab4_WindForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -560,9 +563,10 @@
             this.ClientSize = new System.Drawing.Size(1444, 1393);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "WordListGUI";
+            this.Name = "Lab4_WindForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Word List GUI";
+            this.Load += new System.EventHandler(this.Lab4_WindForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

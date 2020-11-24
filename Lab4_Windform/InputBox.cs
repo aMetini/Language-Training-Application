@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Lab4_Windform
 {
@@ -26,15 +18,31 @@ namespace Lab4_Windform
         private void CloseAsOK()
         {
             Close();
-            DialogResult = DialogResult.Cancel;
+            DialogResult = DialogResult.OK;
         }
 
+        private void CloseAsCancel()
+        {
+            Close();
+            DialogResult = DialogResult.Cancel;
+        }
         private void TextBoxInput_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 CloseAsOK();
             }
+        }
+
+        private void buttonOK_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+
+        private void buttonCancel_Click(object sender, System.EventArgs e)
+        {
+            CloseAsCancel();
         }
 
         private TableLayoutPanel tableLayoutPanelMain;
@@ -42,13 +50,13 @@ namespace Lab4_Windform
         private TextBox textBoxInput;
         private Button buttonOK;
 
-       
+
         private void InitializeComponent()
         {
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.tableLayoutPanelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +81,19 @@ namespace Lab4_Windform
             this.tableLayoutPanelMain.Size = new System.Drawing.Size(1259, 186);
             this.tableLayoutPanelMain.TabIndex = 0;
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(639, 100);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(160, 68);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // textBoxInput
             // 
             this.textBoxInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -82,6 +103,7 @@ namespace Lab4_Windform
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(1232, 44);
             this.textBoxInput.TabIndex = 0;
+            this.textBoxInput.TextChanged += new System.EventHandler(this.textBoxInput_TextChanged);
             // 
             // buttonOK
             // 
@@ -94,18 +116,7 @@ namespace Lab4_Windform
             this.buttonOK.TabIndex = 1;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(639, 100);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(160, 68);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // InputBox
             // 
@@ -117,5 +128,12 @@ namespace Lab4_Windform
             this.ResumeLayout(false);
 
         }
+
+        private void textBoxInput_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        
     }
 }

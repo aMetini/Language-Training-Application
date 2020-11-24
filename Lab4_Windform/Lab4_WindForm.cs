@@ -22,7 +22,7 @@ namespace Lab4_Windform
             InitializeComponent();
         }
 
-        private void Lab4_Windform_Load(object sender, EventArgs e)
+        private void Lab4_WindForm_Load(object sender, EventArgs e)
         {
             writer = new TextBoxStreamWriter(textBoxConsole);
             Console.SetOut(writer);
@@ -81,7 +81,7 @@ namespace Lab4_Windform
                         }
 
                         InputBox inputBox = new InputBox();
-                        if(inputBox.ShowDialog() == DialogResult.OK)
+                        if (inputBox.ShowDialog() == DialogResult.OK)
                         {
                             inputWord = inputBox.GetInputText();
                         }
@@ -319,7 +319,7 @@ namespace Lab4_Windform
             StringBuilder parameters = new StringBuilder();
             args.Add("-new");
             parameters.Append("-new");
-            foreach(string param in textBoxNewParams.Text.Split(' '))
+            foreach (string param in textBoxNewParams.Text.Split(' '))
             {
                 args.Add(param);
                 parameters.Append(" " + param);
